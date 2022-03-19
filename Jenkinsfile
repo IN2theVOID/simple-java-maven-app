@@ -30,5 +30,28 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
+		stage('Upload to Nexus'){
+			steps {
+			  nexusArtifactUploader {
+				nexusVersion('nexus3')
+				protocol('http')
+				nexusUrl('nexus:8081')
+				groupId('sberChallenge')
+				version('3.38')
+				repository('NexusArtifactUploader')
+				credentialsId('nexus')
+				artifact {
+					artifactId('nexus-artifact-uploader')
+					type('jar')
+					classifier('debug')
+					file('nexus-artifact-uploader.jar')
+				}
+				artifact {
+					artifactId('nexus-artifact-uploader')
+					type('hpi')
+					classifier('debug')
+					file('nexus-artifact-uploader.hpi')
+        }
+		}
     }
 }
