@@ -32,14 +32,16 @@ pipeline {
         }
 		stage('Upload to Nexus'){
 			steps {
-			  nexusArtifactUploader {
-					nexusVersion('nexus2')
-					protocol('http')
-					nexusUrl('nexus:8081')
-					groupId('sberChallenge')
-					version('2.4')
-					repository('maven-public')
-					credentialsId('nexus')
+				nexusVersion('nexus2')
+				protocol('http')
+				nexusUrl('nexus:8081')
+				groupId('sberChallenge')
+				version('2.4')
+				repository('maven-public')
+				credentialsId('nexus')
+			  
+				nexusArtifactUploader {
+					
 					artifact {
 						artifactId('nexus-artifact-uploader')
 						type('jar')
@@ -52,6 +54,7 @@ pipeline {
 						classifier('debug')
 						file('nexus-artifact-uploader.hpi')
 					}
+					
 				}
 			}
 		}
