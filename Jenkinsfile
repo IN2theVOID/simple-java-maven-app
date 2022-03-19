@@ -38,7 +38,7 @@ pipeline {
 				nexusUrl('nexus:8081')
 				groupId('sberChallenge')
 				version('3.38')
-				repository('NexusArtifactUploader')
+				repository('maven-public')
 				credentialsId('nexus')
 				artifact {
 					artifactId('nexus-artifact-uploader')
