@@ -33,28 +33,27 @@ pipeline {
 		stage('Upload to Nexus'){
 			steps {
 		
-				sh 'echo 123'
-				//nexusArtifactUploader {
-					
-				//	nexusVersion('nexus2')
-				//	protocol('http')
-				//	nexusUrl('nexus:8081')
-				//	groupId('sberChallenge')
-				//	version('2.4')
-				//	repository('maven-public')
-				//	credentialsId('nexus')
-				//	artifact {
-				//		artifactId('nexus-artifact-uploader')
-				//		type('jar')
-				//		classifier('debug')
-				//		file('nexus-artifact-uploader.jar')
-				//	}
-				//	artifact {
-				//		artifactId('nexus-artifact-uploader')
-				//		type('hpi')
-				//		classifier('debug')
-				//		file('nexus-artifact-uploader.hpi')
-				//	}
+				nexusArtifactUploader {
+				
+					nexusVersion('nexus2')
+					protocol('http')
+					nexusUrl('nexus:8081')
+					groupId('sberChallenge')
+					version('2.4')
+					repository('maven-public')
+					credentialsId('nexus')
+					artifact {
+						artifactId('nexus-artifact-uploader')
+						type('jar')
+						classifier('debug')
+						file('nexus-artifact-uploader.jar')
+					}
+					artifact {
+						artifactId('nexus-artifact-uploader')
+						type('hpi')
+						classifier('debug')
+						file('nexus-artifact-uploader.hpi')
+					}
 
 				}
 			}
