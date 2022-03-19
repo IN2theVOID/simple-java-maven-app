@@ -33,7 +33,7 @@ pipeline {
 		stage('Upload to Nexus'){
 			steps {
 		
-			  
+				sh 'echo 123'
 				//nexusArtifactUploader {
 					
 				//	nexusVersion('nexus2')
