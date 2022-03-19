@@ -51,7 +51,8 @@ pipeline {
 					type('hpi')
 					classifier('debug')
 					file('nexus-artifact-uploader.hpi')
-        }
+				}
+			}
 		}
-    }
+	}
 }
